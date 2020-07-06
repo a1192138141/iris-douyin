@@ -85,7 +85,6 @@ func (this *Ws) message(bytes []byte)  {
 		fmt.Print("==============")
 		fmt.Print(err)
 		reflect.ValueOf(NewRealize(&message,this)).MethodByName(function).Call(nil)
-
 	}()
 
 }

@@ -1,7 +1,7 @@
 package socket
 
 import (
-	"fmt"
+	"ims/lib"
 )
 
 type Realize struct {
@@ -15,5 +15,5 @@ func NewRealize(message *WsMessage,  ws *Ws) *Realize {
 
 
 func (this *Realize) Test()  {
-	fmt.Print(this)
+	this.Ws.Conn.To(this.Ws.Conn.ID()).EmitMessage(lib.SuccessWsResponseMsg("success"))
 }

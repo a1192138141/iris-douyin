@@ -16,6 +16,12 @@ func ErrWsResponseMsg(message string) []byte {
 	return res
 }
 
+func SuccessWsResponseMsg(message string) []byte  {
+	errRes := &ResponseWs{Code:200,Cmd:"",Data:make(map[string]string),Message:message}
+	res ,_ :=json.Marshal(errRes)
+	return res
+}
+
 
 
 
