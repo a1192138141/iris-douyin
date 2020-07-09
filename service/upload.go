@@ -1,6 +1,7 @@
 package service
 
 import (
+	"errors"
 	"fmt"
 	"github.com/astaxie/beego/config"
 	"os"
@@ -25,63 +26,36 @@ func NewUpload(fileName string) *UploadService {
 }
 
 //websocket文件上传
-func WsUploadFile(fileName string,status string , data []byte) (err error){
-	//获取配置文件地址
-	//fileConf ,err  :=config.NewConfig("ini","./conf/file.conf")
-	//if err != nil {
-	//	return  err
-	//}
-	//
-	//if status =="start" {
-	//	saveSize :=GetFileSize(fileName)
-	//}else {
-	//
-	//
-	//
-	//}
+func(this *UploadService) WsUploadFile(status string , data []byte) (tip string,err error){
+	writeRes :=this.WriteFileByAppend(data)
 
-
-
-
-	//if status == ""
-	//
-	//
-	//
-	//path :=fileConf.String("file::path")
-	//fileSize :=GetFileSize(path)
-	//fmt.Print("======文件大小===")
-	//fmt.Print(fileSize)
-
-	return  nil
+	if !writeRes{
+		return  "append",errors.New("文件上传失败")
+	}
+	if status == "start"  {
+		return  "append" , nil
+	}else {
+		return  "success",nil
+	}
 }
 
+//查询文件是否存在
 func (this *UploadService) GetFileExits() (bool,int64) {
 	fileInfo , err :=os.Stat(this.FilePath)
-	fmt.Print("============")
-	fmt.Print(err)
 	if err != nil ||os.IsExist(err){
 		return false , 0
 	}
 	return true,fileInfo.Size()
 }
 
-func GetFileSize(path string ) int {
-	fileInfo , err :=os.Stat(path)
-	if err != nil {
-		return  0
-	}
-	return int(fileInfo.Size())
-}
 
 
-
-func WriteFileByAppend(path string, data []byte)  bool {
-	fp , err :=os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0755)
+func(this *UploadService) WriteFileByAppend( data []byte)  bool {
+	fp , err :=os.OpenFile(this.FilePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0755)
 	defer fp.Close()
 	if err !=nil{
 		return false
 	}
-
 	_, err = fp.Write(data)
 	if err != nil {
 		return false

@@ -22,8 +22,8 @@ func SuccessWsResponseMsg(message string) []byte  {
 	return res
 }
 
-func SuccessSuccessWsResponseData(data interface{}) []byte  {
-	errRes := &ResponseWs{Code:200,Cmd:"",Data:data,Message:"success"}
+func SuccessSuccessWsResponseData(data interface{} ,cmd string) []byte  {
+	errRes := &ResponseWs{Code:200,Cmd:cmd,Data:data,Message:"success"}
 	res ,_ :=json.Marshal(errRes)
 	return res
 }

@@ -136,18 +136,14 @@ func (this *Ws) selectUpload(message *WsMessage)  {
 		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("参数错误"))
 		return
 	}
-
 	uploadService  :=service.NewUpload(fileName.(string))
 	fileExits , size  :=uploadService.GetFileExits()
 	result := make(map[string]interface{})
 	result["status"] = fileExits
 	result["size"] = size
-	this.Conn.To(this.Conn.ID()).EmitMessage(lib.SuccessSuccessWsResponseData(result))
+	this.Conn.To(this.Conn.ID()).EmitMessage(lib.SuccessSuccessWsResponseData(result,"selectUpload"))
 	return
 }
-
-
-
 
 //文件上传操作
 func (this *Ws) upload(message *WsMessage)  {
@@ -158,28 +154,24 @@ func (this *Ws) upload(message *WsMessage)  {
 	fileName,fileOk := messageParamType["file_name"]
 	status , statusOk := messageParamType["status"]
 	data , dataOk := messageParamType["data"].(string)
-	startIndex ,  indexOk := messageParamType["start_index"]
-	err :=service.WsUploadFile(fileName.(string),status.(string),[]byte(data))
-
-
-	fmt.Print(err)
 
 	//字段类型判断
-	if !fileOk || !statusOk  || !dataOk || !indexOk  {
+	if !fileOk || !statusOk  || !dataOk  {
 		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("参数错误"))
 		return
 	}
+	uploadService := service.NewUpload(fileName.(string))
 
+	tip , err :=uploadService.WsUploadFile(status.(string),[]byte(data))
+	if err != nil {
+		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("文件上传失败"))
+		return
+	}
 
-	fmt.Print(status)
-	fmt.Print(data)
-	fmt.Print(startIndex)
-	//进行文件的读取 还需要判断文件是已经传递完毕还是正在传输
-	fmt.Print(fileName)
-
-
-
-
+	result := make(map[string]interface{})
+	result["tip"] = tip
+	this.Conn.To(this.Conn.ID()).EmitMessage(lib.SuccessSuccessWsResponseData(result,"upload"))
+	return
 }
 
 
