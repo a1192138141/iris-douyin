@@ -15,6 +15,7 @@ import (
 
 //初始化websocket
 func InitWsSocket(app *iris.Application) {
+	//基本的websocket
 	mvc.Configure(app.Party("/websocket"), configureWs)
 }
 

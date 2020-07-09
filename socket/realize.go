@@ -1,19 +1,13 @@
 package socket
 
-import (
-	"ims/lib"
-)
-
-type Realize struct {
-	*WsMessage
-	*Ws
+type RealizeInterface interface {
+	Tets() string
 }
 
-func NewRealize(message *WsMessage,  ws *Ws) *Realize {
-	return  &Realize{message,ws}
-}
+type Realize struct {}
 
 
-func (this *Realize) Test()  {
-	this.Ws.Conn.To(this.Ws.Conn.ID()).EmitMessage(lib.SuccessWsResponseMsg("success"))
+
+func Test() string {
+	return  "1"
 }

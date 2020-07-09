@@ -7,7 +7,7 @@ import (
 	"github.com/kataras/iris/websocket"
 	"ims/lib"
 	"ims/models"
-	"reflect"
+	"ims/service"
 	"ims/utils"
 	"net/http"
 )
@@ -19,18 +19,23 @@ var ws = websocket.New(websocket.Config{
 	},
 })
 
-
 //websocket mvc
 func configureWs(m *mvc.Application) {
-	m.Register(ws.Upgrade)
-	m.Handle(new(Ws))
+	m.Register(ws.Upgrade).Handle(NewWs())
 }
+
 
 //ws基类
 type Ws struct {
 	Ctx iris.Context
 	User *models.User
 	Conn websocket.Connection
+	ExitChan chan string
+	MsgErrChan chan string
+}
+
+func NewWs() *Ws  {
+	return &Ws{ExitChan:make(chan string),MsgErrChan:make(chan string)}
 }
 
 //ws message
@@ -40,10 +45,35 @@ type WsMessage struct {
 }
 
 
+
 //用于注册所有的websocket事件
 func (this *Ws) Get()  {
 	this.Conn.OnMessage(this.message)
+	//可以注册一个协程 用于退出
+	go this.ExitWs()
+	//map注册 思路反射所有的类和方法
+	//go this.initFunc()
 	this.Conn.Wait()
+}
+
+
+
+
+
+
+func (this *Ws) ExitWs()  {
+	for{
+		fmt.Print(this.ExitChan)
+		//fmt.Print("============")
+		select {
+			case  exit := <-this.ExitChan:{
+				fmt.Print("=====exie====",exit)
+			   err :=	this.Conn.Disconnect()
+			   fmt.Print(err)
+			}
+
+		}
+	}
 }
 
 
@@ -57,35 +87,98 @@ func (this *Ws) validateToken(token string) bool{
 	if errors != nil {
 		 return false
 	}
+	return  true
+}
 
-	fmt.Print(this)
+//消息前置
+func (this *Ws)messageHandel(message *WsMessage,bytes []byte)  bool {
+	//获取所有传输的字节
+	//var message WsMessage
+	utils.BytesToStruct(bytes,&message)
+	if message.Function =="" {
+		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("参数错误"))
+		return false
+	}
+	token := this.validateToken(this.Ctx.FormValue("token"))
+	if !token {
+		fmt.Print("=========")
+		this.ExitChan <- "err"
+		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("token不正确"))
+		return  false
+	}
 	return  true
 }
 
 //获取message
 func (this *Ws) message(bytes []byte)  {
-	//获取所有传输的字节
-	var message WsMessage
-	utils.BytesToStruct(bytes,&message)
-	if message.Function =="" {
+	var WsMessage WsMessage
+	if handel := this.messageHandel(&WsMessage,bytes); !handel {
+		return
+	}
+
+	//文件上传方法解析
+	switch WsMessage.Function {
+		case "upload" :
+			this.upload(&WsMessage)
+		case "selectUpload":
+			this.selectUpload(&WsMessage)
+
+	}
+
+
+
+}
+
+//查询文件上传
+func (this *Ws) selectUpload(message *WsMessage)  {
+	fileName, ok :=message.Param.(map[string]interface{})["file_name"]
+	if !ok {
 		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("参数错误"))
-	}
-	token := this.validateToken(this.Ctx.FormValue("token"))
-	if !token {
-		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("token不正确"))
+		return
 	}
 
-	//接下来干想干的事情 (直接字符转方法)
-	function := message.Function
-	//reflect.ValueOf(NewRealize(&message,this)).MethodByName(function).Call(nil)
+	uploadService  :=service.NewUpload(fileName.(string))
+	fileExits , size  :=uploadService.GetFileExits()
+	result := make(map[string]interface{})
+	result["status"] = fileExits
+	result["size"] = size
+	this.Conn.To(this.Conn.ID()).EmitMessage(lib.SuccessSuccessWsResponseData(result))
+	return
+}
 
 
-	defer func() {
-		err := recover()
-		fmt.Print("==============")
-		fmt.Print(err)
-		reflect.ValueOf(NewRealize(&message,this)).MethodByName(function).Call(nil)
-	}()
+
+
+//文件上传操作
+func (this *Ws) upload(message *WsMessage)  {
+	//获取文件filename
+	//类型断言
+	messageParamType := message.Param.(map[string]interface{})
+
+	fileName,fileOk := messageParamType["file_name"]
+	status , statusOk := messageParamType["status"]
+	data , dataOk := messageParamType["data"].(string)
+	startIndex ,  indexOk := messageParamType["start_index"]
+	err :=service.WsUploadFile(fileName.(string),status.(string),[]byte(data))
+
+
+	fmt.Print(err)
+
+	//字段类型判断
+	if !fileOk || !statusOk  || !dataOk || !indexOk  {
+		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("参数错误"))
+		return
+	}
+
+
+	fmt.Print(status)
+	fmt.Print(data)
+	fmt.Print(startIndex)
+	//进行文件的读取 还需要判断文件是已经传递完毕还是正在传输
+	fmt.Print(fileName)
+
+
+
 
 }
 
