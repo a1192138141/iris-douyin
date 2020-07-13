@@ -35,7 +35,7 @@ type Ws struct {
 }
 
 func NewWs() *Ws  {
-	return &Ws{ExitChan:make(chan string),MsgErrChan:make(chan string)}
+	return &Ws{ExitChan:make(chan string),MsgErrChan:make(chan string),User:&models.User{}}
 }
 
 //ws message
@@ -154,15 +154,17 @@ func (this *Ws) upload(message *WsMessage)  {
 	fileName,fileOk := messageParamType["file_name"]
 	status , statusOk := messageParamType["status"]
 	data , dataOk := messageParamType["data"].(string)
+	title , titleOk := messageParamType["title"].(string)
 
 	//字段类型判断
-	if !fileOk || !statusOk  || !dataOk  {
+	if !fileOk || !statusOk  || !dataOk  || !titleOk {
 		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("参数错误"))
 		return
 	}
 	uploadService := service.NewUpload(fileName.(string))
 
-	tip , err :=uploadService.WsUploadFile(status.(string),[]byte(data))
+	tip , err :=uploadService.WsUploadFile(int(this.User.ID),title,status.(string),[]byte(data))
+
 	if err != nil {
 		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("文件上传失败"))
 		return

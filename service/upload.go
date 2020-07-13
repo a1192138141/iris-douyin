@@ -26,7 +26,7 @@ func NewUpload(fileName string) *UploadService {
 }
 
 //websocket文件上传
-func(this *UploadService) WsUploadFile(status string , data []byte) (tip string,err error){
+func(this *UploadService) WsUploadFile(userId int,title string ,status string , data []byte) (tip string,err error){
 	writeRes :=this.WriteFileByAppend(data)
 
 	if !writeRes{
@@ -35,6 +35,14 @@ func(this *UploadService) WsUploadFile(status string , data []byte) (tip string,
 	if status == "start"  {
 		return  "append" , nil
 	}else {
+		//this.FilePath
+		ffmpeg := NewVideoFfmepg(this.FilePath)
+		fmt.Print(ffmpeg)
+		//todo video 转缩略图 插入数据库
+		//fmt.Print("=======")
+
+
+
 		return  "success",nil
 	}
 }
