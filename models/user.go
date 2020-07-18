@@ -30,7 +30,7 @@ type User struct {
 
 //获取表名
 func (this *User) GetTableName() string  {
-	return "user"
+	return "users"
 }
 
 func (this *User) GetUserInfoById(UserId int) *User  {

@@ -9,6 +9,10 @@ type UserLoginData struct {
 	Password string `json:"password"`
 }
 
+type GetVideoInfoData struct {
+	Id int `json:"id"`
+}
+
 type UserJwt struct {
 	//User models.User
 	jwt.StandardClaims

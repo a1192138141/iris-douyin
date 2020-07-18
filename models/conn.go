@@ -25,6 +25,7 @@ func InitDbConn()  {
 	charset :=sourceConf.String("db::charset")
 	connStr := fmt.Sprintf("%s:%s@(%s)/%s?charset=%s&parseTime=True&loc=Local",user,password,host,dbname,charset)
 	DbConn , err =gorm.Open("mysql",connStr)
+	DbConn.LogMode(true)
 	if err != nil {
 		fmt.Print(err)
 	}

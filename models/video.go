@@ -22,7 +22,7 @@ type Video struct {
 }
 
 func (this *Video) GetTableName()  string {
-	return "video"
+	return "videos"
 }
 
 //插入一条
