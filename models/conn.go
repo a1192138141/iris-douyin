@@ -37,4 +37,8 @@ func initTable()  {
 	if user == false {
 		DbConn.Set("gorm:table_options", "ENGINE=InnoDB").CreateTable(&User{})
 	}
+	video :=DbConn.HasTable(&Video{})
+	if video == false{
+		DbConn.Set("gorm:table_options", "ENGINE=InnoDB").CreateTable(&Video{})
+	}
 }

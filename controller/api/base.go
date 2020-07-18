@@ -1,6 +1,7 @@
 package api
 
 import (
+	"encoding/json"
 	"github.com/kataras/iris"
 	"ims/lib"
 	"ims/models"
@@ -36,4 +37,14 @@ func (this *Base) validate(ctx iris.Context) bool {
 	}
 	this.User = &userModel
 	return  true
+}
+
+//中间件
+func (this *Base)AnyMiddlewareHere(ctx iris.Context)  {
+	if this.validate(ctx){
+		ctx.Next()
+	}else {
+		errJson ,_ :=json.Marshal(lib.ErrMsg("token错误"))
+		ctx.WriteString(string(errJson))
+	}
 }

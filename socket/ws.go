@@ -2,6 +2,7 @@ package socket
 
 import (
 	"fmt"
+	"github.com/goinggo/mapstructure"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/mvc"
 	"github.com/kataras/iris/websocket"
@@ -79,11 +80,18 @@ func (this *Ws) ExitWs()  {
 
 //token 检验
 func (this *Ws) validateToken(token string) bool{
-	res , err :=lib.ParseUserToken(token)
+	tokenRes , err :=lib.ParseUserToken(token)
 	if !err {
 		return  false
 	}
-	errors  := utils.MapToSturct(res,&this.User)
+
+	errors := mapstructure.Decode(tokenRes,this.User)
+	res := tokenRes.(map[string]interface{})
+	this.User.ID = uint(res["ID"].(float64))
+	if this.User.ID == 0 {
+		return  false
+	}
+
 	if errors != nil {
 		 return false
 	}
@@ -101,11 +109,10 @@ func (this *Ws)messageHandel(message *WsMessage,bytes []byte)  bool {
 	}
 	token := this.validateToken(this.Ctx.FormValue("token"))
 	if !token {
-		fmt.Print("=========")
-		this.ExitChan <- "err"
 		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("token不正确"))
 		return  false
 	}
+	fmt.Print(token)
 	return  true
 }
 
@@ -122,7 +129,6 @@ func (this *Ws) message(bytes []byte)  {
 			this.upload(&WsMessage)
 		case "selectUpload":
 			this.selectUpload(&WsMessage)
-
 	}
 
 
@@ -137,10 +143,13 @@ func (this *Ws) selectUpload(message *WsMessage)  {
 		return
 	}
 	uploadService  :=service.NewUpload(fileName.(string))
+
 	fileExits , size  :=uploadService.GetFileExits()
+
 	result := make(map[string]interface{})
 	result["status"] = fileExits
 	result["size"] = size
+
 	this.Conn.To(this.Conn.ID()).EmitMessage(lib.SuccessSuccessWsResponseData(result,"selectUpload"))
 	return
 }
@@ -172,6 +181,7 @@ func (this *Ws) upload(message *WsMessage)  {
 
 	result := make(map[string]interface{})
 	result["tip"] = tip
+
 	this.Conn.To(this.Conn.ID()).EmitMessage(lib.SuccessSuccessWsResponseData(result,"upload"))
 	return
 }
