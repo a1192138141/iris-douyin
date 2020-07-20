@@ -9,6 +9,7 @@ import (
 func SetRouter(app *iris.Application)  {
 	mvc.Configure(app.Party("/api"),UserMvc) //注册UserMvc
 	mvc.Configure(app.Party("/api"),VideoMvc)
+	mvc.Configure(app.Party("/api"),FriendMvc)
 
 }
 
@@ -16,6 +17,10 @@ func SetRouter(app *iris.Application)  {
 //use mvc
 func UserMvc(app *mvc.Application)  {
 	app.Handle(api.NewUser())
+}
+
+func FriendMvc(app *mvc.Application) {
+	app.Handle(api.NewFriend())
 }
 
 //video mvc

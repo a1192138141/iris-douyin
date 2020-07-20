@@ -2,10 +2,10 @@ package api
 
 import (
 	"encoding/json"
+	"github.com/goinggo/mapstructure"
 	"github.com/kataras/iris"
 	"ims/lib"
 	"ims/models"
-	"ims/utils"
 )
 
 type Base struct {
@@ -23,19 +23,20 @@ func (this *Base) validate(ctx iris.Context) bool {
 	if token == "" {
 		return  false
 	}
-
-	res , err :=lib.ParseUserToken(token)
+	tokenRes , err :=lib.ParseUserToken(token)
 
 	if err == false {
 		return  false
 	}
 
-	userModel := models.User{}
-	errors :=utils.MapToSturct(res,&userModel)
+	//this.User
+	errors := mapstructure.Decode(tokenRes,this.User)
+	res := tokenRes.(map[string]interface{})
+	this.User.ID = uint(res["ID"].(float64))
+
 	if errors != nil {
 		return  false
 	}
-	this.User = &userModel
 	return  true
 }
 
