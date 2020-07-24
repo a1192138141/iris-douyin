@@ -5,6 +5,7 @@ import (
 	"github.com/astaxie/beego/config"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"ims/logs"
 )
 
 
@@ -26,6 +27,8 @@ func InitDbConn()  {
 	connStr := fmt.Sprintf("%s:%s@(%s)/%s?charset=%s&parseTime=True&loc=Local",user,password,host,dbname,charset)
 	DbConn , err =gorm.Open("mysql",connStr)
 	DbConn.LogMode(true)
+	DbConn.SetLogger(logs.NewLogs())
+
 	if err != nil {
 		fmt.Print(err)
 	}

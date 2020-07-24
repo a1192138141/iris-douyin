@@ -1,3 +1,4 @@
 ./conf/datasource.conf
 ./temp/
+./logs/log/
 

@@ -2,9 +2,11 @@ package main
 
 import (
 	"github.com/kataras/iris"
+	"ims/logs"
 	"ims/models"
 	"ims/router"
 	"ims/socket"
+	"os"
 )
 
 
@@ -19,16 +21,30 @@ func Cors(ctx iris.Context) {
 	ctx.Next()
 }
 
+
+
+
+
+
 func main()  {
 	app := iris.New()
 
 	//全局api 跨域
 	app.Use(Cors)
-	//控制台日志
-	//app.Use(ConseLog)
 
-	// 设置日志级别，开发阶段为 debug
-	app.Logger().SetLevel("debug")
+	//日志
+	Logs := logs.NewLogs()
+
+	f ,err :=os.OpenFile(Logs.FilePath,os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+
+	if err != nil {
+		app.Logger().Info(err)
+	}
+	app.Logger().SetLevel(Logs.Level)
+
+	app.Logger().SetOutput(f)
+
+	defer  f.Close()
 
 	//注册路由
 	router.SetRouter(app)

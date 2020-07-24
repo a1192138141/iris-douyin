@@ -1,0 +1,2 @@
+/Users/macbookpro/go/src/ims/logs/logs.go:44: [[33m[2020-07-24 10:17:30][0m [35m[sql /Users/macbookpro/go/src/ims/models/user.go:42 2.255747ms SELECT * FROM `users`  WHERE `users`.`deleted_at` IS NULL AND ((phone = ?)) ORDER BY `users`.`id` ASC LIMIT 1 [18779914287] 1][0m [31;1m [0m]
+/Users/macbookpro/go/src/ims/logs/logs.go:44: [[33m[2020-07-24 10:17:50][0m [35m[sql /Users/macbookpro/go/src/ims/models/user.go:42 2.642965ms SELECT * FROM `users`  WHERE `users`.`deleted_at` IS NULL AND ((phone = ?)) ORDER BY `users`.`id` ASC LIMIT 1 [18779914287] 1][0m [31;1m [0m]

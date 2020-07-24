@@ -11,10 +11,8 @@ type Friend struct {
 
 func GetVideoInfo(userId int )  {
 	//var friends []Friend
-
 	//DbConn.Where("")
 	//friend := []Friend{}
 	//DbConn.
 
-	
 }
