@@ -9,17 +9,17 @@ import (
 )
 
 type User struct {
-	Ctx iris.Context
+	Ctx  iris.Context
 	Base *Base
 }
 
 //使用 new来重写构造函数
-func NewUser() *User  {
-	return &User{Base:NewBase()}
+func NewUser() *User {
+	return &User{Base: NewBase()}
 }
 
 //前置操作 中间件
-func (this *User) BeforeActivation(b mvc.BeforeActivation)  {
+func (this *User) BeforeActivation(b mvc.BeforeActivation) {
 	//anyMiddlewareHere := func(ctx iris.Context) {
 	//	if this.Base.validate(ctx){
 	//		ctx.Next()
@@ -28,28 +28,22 @@ func (this *User) BeforeActivation(b mvc.BeforeActivation)  {
 	//		ctx.WriteString(string(errJson))
 	//	}
 	//}
-	b.Handle("POST","/getUserInfo","GetUserInfo",this.Base.AnyMiddlewareHere)
-	b.Handle("POST","/login","Login") //登录操作
+	b.Handle("POST", "/getUserInfo", "GetUserInfo", this.Base.AnyMiddlewareHere)
+	b.Handle("POST", "/login", "Login") //登录操作
 }
 
 //登录
-func (this *User) Login() interface{}  {
+func (this *User) Login() interface{} {
 	loginData := &datamodels.UserLoginData{}
-	_ =this.Ctx.ReadJSON(&loginData)
+	_ = this.Ctx.ReadJSON(&loginData)
 	//进行登录操作
-	token , err :=service.GetUserInfoByPhone(loginData.Phone,loginData.Password)
+	token, err := service.GetUserInfoByPhone(loginData.Phone, loginData.Password)
 	if err != nil {
-		return 	lib.ErrMsg(err.Error())
+		return lib.ErrMsg(err.Error())
 	}
-	return  lib.SuccessData(token)
+	return lib.SuccessData(token)
 }
-
 
 func (this *User) GetUserInfo() interface{} {
 	return lib.SuccessData(this.Base.User)
 }
-
-
-
-
-

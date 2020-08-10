@@ -7,9 +7,8 @@ import (
 	"ims/models"
 )
 
-
-func MapToSturct(rows interface{} ,strus interface{})  error {
-	if err :=mapstructure.Decode(rows,&strus) ;err != nil{
+func MapToSturct(rows interface{}, strus interface{}) error {
+	if err := mapstructure.Decode(rows, &strus); err != nil {
 		return err
 	}
 
@@ -17,16 +16,16 @@ func MapToSturct(rows interface{} ,strus interface{})  error {
 	fmt.Print(strus)
 	return nil
 }
-func MapToStruct(rows interface{} ,strus models.User)  (res interface{} , err error) {
-	if err :=mapstructure.Decode(rows,strus) ;err != nil{
-		return strus,err
+func MapToStruct(rows interface{}, strus models.User) (res interface{}, err error) {
+	if err := mapstructure.Decode(rows, strus); err != nil {
+		return strus, err
 	}
 
-	return strus,nil
+	return strus, nil
 }
 
-func BytesToStruct(bytes []byte , row interface{})  bool {
-	if err  := json.Unmarshal(bytes,&row) ;err !=nil{
+func BytesToStruct(bytes []byte, row interface{}) bool {
+	if err := json.Unmarshal(bytes, &row); err != nil {
 		return false
 	}
 	return true

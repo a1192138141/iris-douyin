@@ -4,10 +4,8 @@ type RealizeInterface interface {
 	Tets() string
 }
 
-type Realize struct {}
-
-
+type Realize struct{}
 
 func Test() string {
-	return  "1"
+	return "1"
 }

@@ -14,22 +14,22 @@ import (
 
 //const JwtKey  = []byte("douyin")
 
-var(
+var (
 	key []byte = []byte("douyin")
 )
 
-func GetJwtToken(UserInfo *models.User)  (string,error) {
+func GetJwtToken(UserInfo *models.User) (string, error) {
 
 	token := jwt.New(jwt.SigningMethodHS256)
 	claims := make(jwt.MapClaims)
 	claims["user"] = UserInfo
 
 	token.Claims = claims
-	tokenString, err:= token.SignedString([]byte(key))
-	return tokenString,err
+	tokenString, err := token.SignedString([]byte(key))
+	return tokenString, err
 }
 
-func ParseUserToken(tokenString string)  (interface{}, bool) {
+func ParseUserToken(tokenString string) (interface{}, bool) {
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
@@ -37,14 +37,14 @@ func ParseUserToken(tokenString string)  (interface{}, bool) {
 		return []byte(key), nil
 	})
 	if err != nil {
-		return  nil,false
+		return nil, false
 	}
 
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-		return  claims["user"],true
+		return claims["user"], true
 	} else {
 		fmt.Println("=====2=====")
 		return "", false
 	}
-	
+
 }

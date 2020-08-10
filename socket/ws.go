@@ -25,30 +25,27 @@ func configureWs(m *mvc.Application) {
 	m.Register(ws.Upgrade).Handle(NewWs())
 }
 
-
 //ws基类
 type Ws struct {
-	Ctx iris.Context
-	User *models.User
-	Conn websocket.Connection
-	ExitChan chan string
+	Ctx        iris.Context
+	User       *models.User
+	Conn       websocket.Connection
+	ExitChan   chan string
 	MsgErrChan chan string
 }
 
-func NewWs() *Ws  {
-	return &Ws{ExitChan:make(chan string),MsgErrChan:make(chan string),User:&models.User{}}
+func NewWs() *Ws {
+	return &Ws{ExitChan: make(chan string), MsgErrChan: make(chan string), User: &models.User{}}
 }
 
 //ws message
 type WsMessage struct {
-	Function string `json:"function"`
-	Param interface{} `json:"param"`
+	Function string      `json:"function"`
+	Param    interface{} `json:"param"`
 }
 
-
-
 //用于注册所有的websocket事件
-func (this *Ws) Get()  {
+func (this *Ws) Get() {
 	this.Conn.OnMessage(this.message)
 	//可以注册一个协程 用于退出
 	go this.ExitWs()
@@ -57,122 +54,115 @@ func (this *Ws) Get()  {
 	this.Conn.Wait()
 }
 
-
-
-
-
-
-func (this *Ws) ExitWs()  {
-	for{
+func (this *Ws) ExitWs() {
+	for {
 		fmt.Print(this.ExitChan)
 		//fmt.Print("============")
 		select {
-			case  exit := <-this.ExitChan:{
-				fmt.Print("=====exie====",exit)
-			   err :=	this.Conn.Disconnect()
-			   fmt.Print(err)
+		case exit := <-this.ExitChan:
+			{
+				fmt.Print("=====exie====", exit)
+				err := this.Conn.Disconnect()
+				fmt.Print(err)
 			}
 
 		}
 	}
 }
 
-
 //token 检验
-func (this *Ws) validateToken(token string) bool{
-	tokenRes , err :=lib.ParseUserToken(token)
+func (this *Ws) validateToken(token string) bool {
+	tokenRes, err := lib.ParseUserToken(token)
 	if !err {
-		return  false
+		return false
 	}
 
-	errors := mapstructure.Decode(tokenRes,this.User)
+	errors := mapstructure.Decode(tokenRes, this.User)
 	res := tokenRes.(map[string]interface{})
 	this.User.ID = uint(res["ID"].(float64))
 	if this.User.ID == 0 {
-		return  false
+		return false
 	}
 
 	if errors != nil {
-		 return false
+		return false
 	}
-	return  true
+	return true
 }
 
 //消息前置
-func (this *Ws)messageHandel(message *WsMessage,bytes []byte)  bool {
+func (this *Ws) messageHandel(message *WsMessage, bytes []byte) bool {
 	//获取所有传输的字节
 	//var message WsMessage
-	utils.BytesToStruct(bytes,&message)
-	if message.Function =="" {
+	utils.BytesToStruct(bytes, &message)
+	if message.Function == "" {
 		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("参数错误"))
 		return false
 	}
 	token := this.validateToken(this.Ctx.FormValue("token"))
 	if !token {
 		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("token不正确"))
-		return  false
+		return false
 	}
 	fmt.Print(token)
-	return  true
+	return true
 }
 
 //获取message
-func (this *Ws) message(bytes []byte)  {
+func (this *Ws) message(bytes []byte) {
 	var WsMessage WsMessage
-	if handel := this.messageHandel(&WsMessage,bytes); !handel {
+	if handel := this.messageHandel(&WsMessage, bytes); !handel {
 		return
 	}
 
 	//文件上传方法解析
 	switch WsMessage.Function {
-		case "upload" :
-			this.upload(&WsMessage)
-		case "selectUpload":
-			this.selectUpload(&WsMessage)
+	case "upload":
+		this.upload(&WsMessage)
+	case "selectUpload":
+		this.selectUpload(&WsMessage)
 	}
-
-
 
 }
 
 //查询文件上传
-func (this *Ws) selectUpload(message *WsMessage)  {
-	fileName, ok :=message.Param.(map[string]interface{})["file_name"]
+func (this *Ws) selectUpload(message *WsMessage) {
+	fileName, ok := message.Param.(map[string]interface{})["file_name"]
 	if !ok {
-		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("参数错误"))
-		return
-	}
-	uploadService  :=service.NewUpload(fileName.(string))
-
-	fileExits , size  :=uploadService.GetFileExits()
-
-	result := make(map[string]interface{})
-	result["status"] = fileExits
-	result["size"] = size
-
-	this.Conn.To(this.Conn.ID()).EmitMessage(lib.SuccessSuccessWsResponseData(result,"selectUpload"))
-	return
-}
-
-//文件上传操作
-func (this *Ws) upload(message *WsMessage)  {
-	//获取文件filename
-	//类型断言
-	messageParamType := message.Param.(map[string]interface{})
-
-	fileName,fileOk := messageParamType["file_name"]
-	status , statusOk := messageParamType["status"]
-	data , dataOk := messageParamType["data"].(string)
-	title , titleOk := messageParamType["title"].(string)
-
-	//字段类型判断
-	if !fileOk || !statusOk  || !dataOk  || !titleOk {
 		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("参数错误"))
 		return
 	}
 	uploadService := service.NewUpload(fileName.(string))
 
-	tip , err :=uploadService.WsUploadFile(int(this.User.ID),title,status.(string),[]byte(data))
+	fileExits, size := uploadService.GetFileExits()
+
+	result := make(map[string]interface{})
+	result["status"] = fileExits
+	result["size"] = size
+
+	this.Conn.To(this.Conn.ID()).EmitMessage(lib.SuccessSuccessWsResponseData(result, "selectUpload"))
+	return
+}
+
+//文件上传操作
+func (this *Ws) upload(message *WsMessage) {
+	//获取文件filename
+	//类型断言
+	messageParamType := message.Param.(map[string]interface{})
+
+	fileName, fileOk := messageParamType["file_name"]
+	status, statusOk := messageParamType["status"]
+	data, dataOk := messageParamType["data"].(string)
+	title, titleOk := messageParamType["title"].(string)
+
+	//字段类型判断
+	if !fileOk || !statusOk || !dataOk || !titleOk {
+		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("参数错误"))
+		return
+	}
+	uploadService := service.NewUpload(fileName.(string))
+
+	tip, err := uploadService.WsUploadFile(int(this.User.ID), title, status.(string), []byte(data))
 
 	if err != nil {
 		this.Conn.To(this.Conn.ID()).EmitMessage(lib.ErrWsResponseMsg("文件上传失败"))
@@ -182,16 +172,6 @@ func (this *Ws) upload(message *WsMessage)  {
 	result := make(map[string]interface{})
 	result["tip"] = tip
 
-	this.Conn.To(this.Conn.ID()).EmitMessage(lib.SuccessSuccessWsResponseData(result,"upload"))
+	this.Conn.To(this.Conn.ID()).EmitMessage(lib.SuccessSuccessWsResponseData(result, "upload"))
 	return
 }
-
-
-
-
-
-
-
-
-
-

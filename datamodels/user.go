@@ -5,7 +5,7 @@ import (
 )
 
 type UserLoginData struct {
-	Phone string `json:"phone"`
+	Phone    string `json:"phone"`
 	Password string `json:"password"`
 }
 

@@ -5,8 +5,8 @@ import (
 	engineio "github.com/googollee/go-engine.io"
 	"github.com/googollee/go-engine.io/transport"
 	"github.com/googollee/go-engine.io/transport/polling"
-	socketio "github.com/googollee/go-socket.io"
 	tws "github.com/googollee/go-engine.io/transport/websocket"
+	socketio "github.com/googollee/go-socket.io"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/mvc"
 	"log"
@@ -19,8 +19,7 @@ func InitWsSocket(app *iris.Application) {
 	mvc.Configure(app.Party("/websocket"), configureWs)
 }
 
-
-func InitSocketIo(app *iris.Application)  {
+func InitSocketIo(app *iris.Application) {
 	pt := polling.Default
 	wt := tws.Default
 	wt.CheckOrigin = func(req *http.Request) bool {
@@ -63,11 +62,8 @@ func InitSocketIo(app *iris.Application)  {
 		fmt.Println("closed", msg)
 	})
 
-
 	go server.Serve()
 
 	//defer server.Close()
-	app.HandleMany("GET POST", "/socket.io/{any:path}", iris.FromStd(server) )
+	app.HandleMany("GET POST", "/socket.io/{any:path}", iris.FromStd(server))
 }
-
-

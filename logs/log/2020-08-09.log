@@ -1,0 +1,678 @@
+[DBUG] 2020/08/09 10:55 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 10:55 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 10:55 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 10:55 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 10:56 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 10:56 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 10:56 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 10:56 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 10:56 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 10:56 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 10:56 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 10:56 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 10:56 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 10:56 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 10:56 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 10:56 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 10:56 Application: running using 1 host(s)
+[DBUG] 2020/08/09 10:56 Host: addr is :9090
+[DBUG] 2020/08/09 10:56 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 10:56 Host: register startup notifier
+[DBUG] 2020/08/09 10:56 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 10:56 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 10:58 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 10:58 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 10:58 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 10:58 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 10:58 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 10:58 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 10:58 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 10:58 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 10:58 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 10:58 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 10:58 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 10:58 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 10:58 Application: running using 1 host(s)
+[DBUG] 2020/08/09 10:58 Host: addr is :9090
+[DBUG] 2020/08/09 10:58 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 10:58 Host: register startup notifier
+[DBUG] 2020/08/09 10:58 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 10:58 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 10:59 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 10:59 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 10:59 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 10:59 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:00 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:00 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:00 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:00 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:00 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:00 Host: addr is :9090
+[DBUG] 2020/08/09 11:00 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:00 Host: register startup notifier
+[DBUG] 2020/08/09 11:00 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:00 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:00 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:00 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:00 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:00 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:00 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:00 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:00 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:00 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:00 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:00 Host: addr is :9090
+[DBUG] 2020/08/09 11:00 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:00 Host: register startup notifier
+[DBUG] 2020/08/09 11:00 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:00 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:00 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:00 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:00 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:00 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:00 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:00 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:00 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:00 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:00 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:00 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:00 Host: addr is :9090
+[DBUG] 2020/08/09 11:00 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:00 Host: register startup notifier
+[DBUG] 2020/08/09 11:00 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:00 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:01 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:01 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:01 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:01 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:01 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:01 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:01 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:01 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:01 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:01 Host: addr is :9090
+[DBUG] 2020/08/09 11:01 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:01 Host: register startup notifier
+[DBUG] 2020/08/09 11:01 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:01 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:01 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:01 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:01 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:01 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:01 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:01 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:01 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:01 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:01 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:01 Host: addr is :9090
+[DBUG] 2020/08/09 11:01 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:01 Host: register startup notifier
+[DBUG] 2020/08/09 11:01 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:01 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:01 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:02 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:02 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:02 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:02 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:02 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:02 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:02 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:02 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:02 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:02 Host: addr is :9090
+[DBUG] 2020/08/09 11:02 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:02 Host: register startup notifier
+[DBUG] 2020/08/09 11:02 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:02 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:03 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:03 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:03 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:03 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:03 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:03 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:03 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:03 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:03 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:03 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:03 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:03 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:03 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:03 Host: addr is :9090
+[DBUG] 2020/08/09 11:03 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:03 Host: register startup notifier
+[DBUG] 2020/08/09 11:03 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:03 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:06 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:06 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:06 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:06 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:06 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:06 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:06 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:06 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:06 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:06 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:06 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:06 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:06 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:06 Host: addr is :9090
+[DBUG] 2020/08/09 11:06 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:06 Host: register startup notifier
+[DBUG] 2020/08/09 11:06 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:06 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:07 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:07 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:07 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:07 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:07 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:07 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:07 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:07 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:07 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:07 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:07 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:07 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:07 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:07 Host: addr is :9090
+[DBUG] 2020/08/09 11:07 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:07 Host: register startup notifier
+[DBUG] 2020/08/09 11:07 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:07 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:10 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:10 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:10 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:10 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:10 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:10 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:10 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:10 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:10 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:10 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:10 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:10 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:10 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:10 Host: addr is :9090
+[DBUG] 2020/08/09 11:10 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:10 Host: register startup notifier
+[DBUG] 2020/08/09 11:10 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:10 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:11 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:11 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:11 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:11 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:11 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:11 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:11 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:11 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:11 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:11 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:11 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:11 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:11 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:11 Host: addr is :9090
+[DBUG] 2020/08/09 11:11 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:11 Host: register startup notifier
+[DBUG] 2020/08/09 11:11 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:11 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:14 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:14 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:14 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:14 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:14 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:14 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:14 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:14 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:14 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:14 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:14 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:14 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:14 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:14 Host: addr is :9090
+[DBUG] 2020/08/09 11:14 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:14 Host: register startup notifier
+[DBUG] 2020/08/09 11:14 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:14 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:19 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:19 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:19 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:19 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:19 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:19 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:19 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:19 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:19 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:19 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:19 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:19 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:19 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:19 Host: addr is :9090
+[DBUG] 2020/08/09 11:19 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:19 Host: register startup notifier
+[DBUG] 2020/08/09 11:19 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:19 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:23 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:23 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:23 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:23 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:23 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:23 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:23 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:23 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:23 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:23 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:23 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:23 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:23 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:23 Host: addr is :9090
+[DBUG] 2020/08/09 11:23 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:23 Host: register startup notifier
+[DBUG] 2020/08/09 11:23 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:23 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/09 11:23 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:23 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/09 11:23 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/09 11:23 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/09 11:23 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/09 11:23 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/09 11:23 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/09 11:23 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:23 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/09 11:23 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/09 11:23 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/09 11:23 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/09 11:23 Application: running using 1 host(s)
+[DBUG] 2020/08/09 11:23 Host: addr is :9090
+[DBUG] 2020/08/09 11:23 Host: virtual host is localhost:9090
+[DBUG] 2020/08/09 11:23 Host: register startup notifier
+[DBUG] 2020/08/09 11:23 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/09 11:23 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[HTTP Server] http: panic serving [::1]:61845: interface conversion: interface {} is nil, not map[string]interface {}
+goroutine 12 [running]:
+net/http.(*conn).serve.func1(0xc00028a3c0)
+	/usr/local/go/src/net/http/server.go:1767 +0x139
+panic(0x18d0c40, 0xc00039fa10)
+	/usr/local/go/src/runtime/panic.go:679 +0x1b2
+ims/controller/api.(*Base).validate(0xc0001e79a0, 0x1b56880, 0xc0004d61b0, 0xc000077988)
+	/Users/macbookpro/go/src/ims/controller/api/base.go:34 +0x1d1
+ims/controller/api.(*Base).AnyMiddlewareHere(0xc0001e79a0, 0x1b56880, 0xc0004d61b0)
+	/Users/macbookpro/go/src/ims/controller/api/base.go:45 +0x43
+github.com/kataras/iris/context.DefaultNext(0x1b56880, 0xc0004d61b0)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/context/context.go:1208 +0x107
+github.com/kataras/iris/context.(*context).Next(0xc0004d61b0)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/context/context.go:1217 +0x3e
+main.Cors(0x1b56880, 0xc0004d61b0)
+	/Users/macbookpro/go/src/ims/main.go:22 +0x194
+github.com/kataras/iris/context.Do(0x1b56880, 0xc0004d61b0, 0xc0002a9760, 0x3, 0x3)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/context/context.go:922 +0x81
+github.com/kataras/iris/context.(*context).Do(0xc0004d61b0, 0xc0002a9760, 0x3, 0x3)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/context/context.go:1094 +0x55
+github.com/kataras/iris/core/router.(*routerHandler).HandleRequest(0xc0002800c0, 0x1b56880, 0xc0004d61b0)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/core/router/handler.go:227 +0x55c
+github.com/kataras/iris/core/router.(*Router).BuildRouter.func1(0x1b36680, 0xc00001e0e0, 0xc0004dcb00)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/core/router/router.go:84 +0x8f
+github.com/kataras/iris/core/router.(*Router).ServeHTTP(0xc000046700, 0x1b36680, 0xc00001e0e0, 0xc0004dcb00)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/core/router/router.go:161 +0x48
+net/http.serverHandler.ServeHTTP(0xc00001e000, 0x1b36680, 0xc00001e0e0, 0xc0004dcb00)
+	/usr/local/go/src/net/http/server.go:2802 +0xa4
+net/http.(*conn).serve(0xc00028a3c0, 0x1b3a340, 0xc0004cc440)
+	/usr/local/go/src/net/http/server.go:1890 +0x875
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2927 +0x38e
+[HTTP Server] http: panic serving 127.0.0.1:61857: interface conversion: interface {} is nil, not map[string]interface {}
+goroutine 84 [running]:
+net/http.(*conn).serve.func1(0xc0004a0000)
+	/usr/local/go/src/net/http/server.go:1767 +0x139
+panic(0x18d0c40, 0xc000491080)
+	/usr/local/go/src/runtime/panic.go:679 +0x1b2
+ims/controller/api.(*Base).validate(0xc0001e79a0, 0x1b56880, 0xc0005122d0, 0xc00052b988)
+	/Users/macbookpro/go/src/ims/controller/api/base.go:34 +0x1d1
+ims/controller/api.(*Base).AnyMiddlewareHere(0xc0001e79a0, 0x1b56880, 0xc0005122d0)
+	/Users/macbookpro/go/src/ims/controller/api/base.go:45 +0x43
+github.com/kataras/iris/context.DefaultNext(0x1b56880, 0xc0005122d0)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/context/context.go:1208 +0x107
+github.com/kataras/iris/context.(*context).Next(0xc0005122d0)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/context/context.go:1217 +0x3e
+main.Cors(0x1b56880, 0xc0005122d0)
+	/Users/macbookpro/go/src/ims/main.go:22 +0x194
+github.com/kataras/iris/context.Do(0x1b56880, 0xc0005122d0, 0xc0002a9760, 0x3, 0x3)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/context/context.go:922 +0x81
+github.com/kataras/iris/context.(*context).Do(0xc0005122d0, 0xc0002a9760, 0x3, 0x3)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/context/context.go:1094 +0x55
+github.com/kataras/iris/core/router.(*routerHandler).HandleRequest(0xc0002800c0, 0x1b56880, 0xc0005122d0)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/core/router/handler.go:227 +0x55c
+github.com/kataras/iris/core/router.(*Router).BuildRouter.func1(0x1b36680, 0xc0002d60e0, 0xc0000e0500)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/core/router/router.go:84 +0x8f
+github.com/kataras/iris/core/router.(*Router).ServeHTTP(0xc000046700, 0x1b36680, 0xc0002d60e0, 0xc0000e0500)
+	/Users/macbookpro/go/pkg/mod/github.com/kataras/iris@v11.1.1+incompatible/core/router/router.go:161 +0x48
+net/http.serverHandler.ServeHTTP(0xc00001e000, 0x1b36680, 0xc0002d60e0, 0xc0000e0500)
+	/usr/local/go/src/net/http/server.go:2802 +0xa4
+net/http.(*conn).serve(0xc0004a0000, 0x1b3a340, 0xc0001ec000)
+	/usr/local/go/src/net/http/server.go:1890 +0x875
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2927 +0x38e

@@ -22,7 +22,7 @@ func GetUserInfoByPhone(phone string, password string) (map[string]string, error
 
 	//对比成功生成token
 	//jwt :=datamodels.UserJwt{User:userInfo}
-	token , err :=lib.GetJwtToken(userInfo)
+	token, err := lib.GetJwtToken(userInfo)
 
 	maps["token"] = token
 	return maps, err

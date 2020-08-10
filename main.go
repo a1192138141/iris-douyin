@@ -2,13 +2,13 @@ package main
 
 import (
 	"github.com/kataras/iris"
+	"ims/elasticsearch"
 	"ims/logs"
 	"ims/models"
 	"ims/router"
 	"ims/socket"
 	"os"
 )
-
 
 func Cors(ctx iris.Context) {
 	origin := ctx.GetHeader("Origin")
@@ -21,12 +21,7 @@ func Cors(ctx iris.Context) {
 	ctx.Next()
 }
 
-
-
-
-
-
-func main()  {
+func main() {
 	app := iris.New()
 
 	//全局api 跨域
@@ -35,7 +30,7 @@ func main()  {
 	//日志
 	Logs := logs.NewLogs()
 
-	f ,err :=os.OpenFile(Logs.FilePath,os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	f, err := os.OpenFile(Logs.FilePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 
 	if err != nil {
 		app.Logger().Info(err)
@@ -44,7 +39,7 @@ func main()  {
 
 	app.Logger().SetOutput(f)
 
-	defer  f.Close()
+	defer f.Close()
 
 	//注册路由
 	router.SetRouter(app)
@@ -63,9 +58,10 @@ func main()  {
 		iris.WithoutServerError(iris.ErrServerClosed))
 }
 
-
-func initEvent()  {
+func initEvent() {
 	//orm 数据库注册
 	models.InitDbConn()
-}
 
+	//es 事件注册
+	elasticsearch.GetEsConn()
+}

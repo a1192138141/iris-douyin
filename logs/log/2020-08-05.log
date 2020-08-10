@@ -1,0 +1,70 @@
+[DBUG] 2020/08/05 10:09 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/05 10:09 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/05 10:09 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/05 10:09 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/05 10:09 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/05 10:09 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/05 10:09 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/05 10:09 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/05 10:09 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/05 10:09 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/05 10:09 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/05 10:09 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/05 10:09 Application: running using 1 host(s)
+[DBUG] 2020/08/05 10:09 Host: addr is :9090
+[DBUG] 2020/08/05 10:09 Host: virtual host is localhost:9090
+[DBUG] 2020/08/05 10:09 Host: register startup notifier
+[DBUG] 2020/08/05 10:09 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/05 10:09 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
+[DBUG] 2020/08/05 10:10 MVC dependencies of 'api.User':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/05 10:10 MVC dependencies of 'api.Video':
+[1] Static binding: '*api.Base' for field 'Base *api.Base'
+[2] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+
+[DBUG] 2020/08/05 10:10 MVC dependencies of 'api.Friend':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*api.Base' for field 'Base *api.Base'
+
+[DBUG] 2020/08/05 10:10 MVC dependencies of 'socket.Ws':
+[1] Dynamic binding: 'context.Context' for field 'Ctx context.Context'
+[2] Static binding: '*models.User' for field 'User *models.User'
+[3] Dynamic binding: 'websocket.Connection' for field 'Conn websocket.Connection'
+[4] Static binding: 'chan string' for field 'ExitChan chan string'
+[5] Static binding: 'chan string' for field 'MsgErrChan chan string'
+
+[DBUG] 2020/08/05 10:10 POST: /api/video/getIds -> api.Video.GetVideoIds() and 1 more
+[DBUG] 2020/08/05 10:10 POST: /api/video/getInfo -> api.Video.GetVideoInfo() and 1 more
+[DBUG] 2020/08/05 10:10 POST: /api/friend/getVideoInfo -> api.Friend.GetFriendVideo() and 2 more
+[DBUG] 2020/08/05 10:10 POST: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/05 10:10 POST: /api/getUserInfo -> api.User.GetUserInfo() and 2 more
+[DBUG] 2020/08/05 10:10 GET: /socket.io/{any:path} -> github.com/kataras/iris/core/handlerconv.FromStd.func1() and 1 more
+[DBUG] 2020/08/05 10:10 GET: /websocket -> socket.Ws.Get() and 1 more
+[DBUG] 2020/08/05 10:10 POST: /api/login -> api.User.Login() and 1 more
+[DBUG] 2020/08/05 10:10 Application: running using 1 host(s)
+[DBUG] 2020/08/05 10:10 Host: addr is :9090
+[DBUG] 2020/08/05 10:10 Host: virtual host is localhost:9090
+[DBUG] 2020/08/05 10:10 Host: register startup notifier
+[DBUG] 2020/08/05 10:10 Host: register server shutdown on interrupt(CTRL+C/CMD+C)
+[DBUG] 2020/08/05 10:10 Host: server will ignore the following errors: [http: Server closed]
+Now listening on: http://localhost:9090
+Application started. Press CMD+C to shut down.
