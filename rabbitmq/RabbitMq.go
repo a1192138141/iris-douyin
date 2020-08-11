@@ -59,6 +59,9 @@ func (self *RabbitMq)mqConnect() {
 		logs.NewLogs().Print("链接rabbitmq 失败")
 		return
 	}
+	fmt.Println("channel")
+	fmt.Println(self)
+
 
 	self.conn =MqConn   // 赋值给RabbitMQ对象
 	if err != nil {
@@ -68,6 +71,7 @@ func (self *RabbitMq)mqConnect() {
 	if err != nil {
 		fmt.Printf("MQ打开管道失败:%s \n", err)
 	}
+
 }
 
 //新建一个 rabbitmq
@@ -124,7 +128,7 @@ func (self *RabbitMq) Run() {
 	执行生成
  */
 func (self *RabbitMq) sendProducer(p Producers)  {
-	if self.conn.IsClosed() {
+	if self.channel == nil {
 		self.mqConnect()
 	}
 
@@ -159,6 +163,9 @@ func (self *RabbitMq) sendProducer(p Producers)  {
 	执行消费
  */
 func (self *RabbitMq) sendReceiver(r Receivers)  {
+	if self.channel == nil {
+		self.mqConnect()
+	}
 	_, err := self.channel.QueueDeclare(
 		self.queueName, // name of the queue
 		true,      // durable
@@ -167,6 +174,7 @@ func (self *RabbitMq) sendReceiver(r Receivers)  {
 		false,     // noWait
 		nil,       // arguments
 	)
+
 	if err != nil {
 		logs.NewLogs().Print(fmt.Sprintf("创建队列失败:%s", err))
 		return
