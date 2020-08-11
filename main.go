@@ -7,6 +7,7 @@ import (
 	"ims/models"
 	"ims/router"
 	"ims/socket"
+	"ims/rabbitmq"
 	"os"
 )
 
@@ -64,4 +65,8 @@ func initEvent() {
 
 	//es 事件注册
 	elasticsearch.GetEsConn()
+
+	//rabbitmq 事件注册
+	rabbitmq.InitRabbitMq()
+
 }

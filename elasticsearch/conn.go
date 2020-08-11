@@ -29,14 +29,12 @@ func GetEsConn() {
 	host := exConfig.String("elasticsearch::host")
 	port := exConfig.String("elasticsearch::port")
 	linkUrl := fmt.Sprintf("http://%s:%s", host, port)
-	fmt.Println(linkUrl)
-
 	//创建连接
 	es := EsStruct{}
 	es.port, err = strconv.Atoi(port)
 	es.host = host
 
-	es.EsConn, err = elastic.NewClient(elastic.SetURL("http://0.0.0.0:9200/"), elastic.SetSniff(false))
+	es.EsConn, err = elastic.NewClient(elastic.SetURL(linkUrl), elastic.SetSniff(false))
 	EsConn = &es
 	if err != nil {
 		logs.Print("es连接错误：" + err.Error())

@@ -14,32 +14,35 @@ import (
 
 
 const videoMappings = `{
-	"mappings":{
-			"properties":{
-				"user_id":{
-					"type":"integer"
-				},
-				
-				"title":{
-					"type":"string"
-				},
-				"desc":{
-					"type":"text"
-				},
-				"name":{
-					"type":"string"
-				},
-				"url":{
-					"type":"string"
-				},
-				"created":{
-					"type":"date"
-				},
-				"updated":{
-					"type":"date"
-				},
-		}
-	}
+    "mappings": {
+        "properties": {
+            "user_id": {
+                "type": "long"
+            },
+            "title": {
+                "type": "text",
+                "analyzer": "ik_max_word",
+                "search_analyzer": "ik_max_word"
+            },
+            "desc": {
+                "type": "text",
+                "analyzer": "ik_max_word",
+                "search_analyzer": "ik_max_word"
+            },
+            "name": {
+                "type": "keyword"
+            },
+            "url": {
+                "type": "keyword"
+            },
+            "created": {
+                "type": "date"
+            },
+            "updated": {
+                "type": "date"
+            }
+        }
+    }
 }`
 
 /**
@@ -69,8 +72,8 @@ func NewEsVideo() *EsVideo {
 func (self *EsVideo) InsertEsVideo()  bool{
 	save := SaveVideoStruct{
 		1,
-		"golang ok",
-		"世界上最好的语言",
+		"phpNuasdasdgy ok",
+		"世界上最好的语言php 牛逼 好的",
 		"php",
 		"",
 		int(time.Now().Unix()),
@@ -99,6 +102,10 @@ func (self *EsVideo) SearchKeyWord(indexName string , value string) []SaveVideoS
 	} else {
 	}
 	return Subject
+}
+
+func (self *EsVideo) GetMappings() string {
+	return videoMappings
 }
 
 

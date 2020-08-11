@@ -5,6 +5,8 @@ import (
 	"github.com/kataras/iris/mvc"
 	"ims/elasticsearch"
 	"ims/lib"
+
+	//"ims/lib"
 )
 
 /**
@@ -26,6 +28,8 @@ func (this *Search) BeforeActivation(b mvc.BeforeActivation) {
 
 func (this *Search) Search() interface{} {
 	video := elasticsearch.NewEsVideo()
-	res := video.SearchKeyWord("desc","世界上")
+	//video.InsertEsVideo()
+	//video.CreateIndex(video.GetIndexName(),video.GetMappings())
+	res := video.SearchKeyWord("desc","逼")
 	return  lib.SuccessData(res)
 }

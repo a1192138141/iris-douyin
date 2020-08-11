@@ -25,6 +25,7 @@ require (
 	github.com/olivere/elastic v6.2.34+incompatible
 	github.com/olivere/elastic/v7 v7.0.19
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
+	github.com/streadway/amqp v1.0.0
 	github.com/xfrr/goffmpeg v0.0.0-20200624145540-fb3f88b1924e
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 	golang.org/x/net v0.0.0-20200625001655-4c5254603344 // indirect

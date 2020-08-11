@@ -36,37 +36,6 @@ type TestDemoStruct struct {
 	SuggestField string `json:"suggest_field"`
 }
 
-const TestDemo = `{
-	"settings":{
-		"number_of_shards": 1,
-		"number_of_replicas": 0
-	},
-	"mappings":{
-			"properties":{
-				"name":{
-					"type":"text"
-				},
-				"age":{
-					"type":"long"
-				},
-				"married":{
-				"type":"boolean"
-				},
-				"created":{
-					"type":"date"
-				},
-				"tags":{
-					"type":"keyword"
-				},
-				"location":{
-					"type":"geo_point"
-				},
-				"suggest_field":{
-					"type":"completion"
-				}
-		}
-	}
-}`
 
 func (self *EsBase) Proxy(function func() , args ...interface{}) {
 	logs.NewLogs().Print(fmt.Sprintf("插入数据结构为%s\n",args))
